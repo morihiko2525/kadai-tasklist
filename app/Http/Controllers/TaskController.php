@@ -50,7 +50,7 @@ class TaskController extends Controller
         $tasks->content = $request->content;
         $tasks->save();
         
-        return redirect('/tasks/');
+        return redirect('/');
     }
 
     /**
@@ -102,7 +102,7 @@ class TaskController extends Controller
         $tasks->save();
 
         // トップページへリダイレクトさせる
-        return redirect('/tasks/');
+        return redirect('/');
     }
 
     /**
