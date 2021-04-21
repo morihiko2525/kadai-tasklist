@@ -10,6 +10,10 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+/*
 Route::get('/tasks/', 'TaskController@index');
+Route::resource('tasks', 'TaskController');*/
+Route::get('/', 'TaskController@index');
+
 Route::resource('tasks', 'TaskController');
 ?>
