@@ -13,6 +13,11 @@
             <th>タスク</th>
             <td>{{ $tasks->content }}</td>
         </tr>
+        
+        <tr>
+            <th>ステータス</th>
+            <td>{{ $tasks->status }}</td>
+        </tr>
     </table>
     {{-- メッセージ編集ページへのリンク --}}
     {!! link_to_route('tasks.edit', 'タスクを編集', ['task' => $tasks->id], ['class' => 'btn btn-light']) !!}

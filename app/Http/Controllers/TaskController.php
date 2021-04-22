@@ -46,8 +46,14 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'content' => 'required|max:255',
+            'status' => 'required|max:10',
+        ]);
+        
         $tasks = new Task;
         $tasks->content = $request->content;
+        $tasks->status = $request->status;
         $tasks->save();
         
         return redirect('/');
@@ -95,10 +101,15 @@ class TaskController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'content' => 'required|max:255',
+            'status' => 'required|max:10',
+        ]);
          // idの値でメッセージを検索して取得
         $tasks = Task::findOrFail($id);
         // メッセージを更新
         $tasks->content = $request->content;
+        $tasks->status = $request->status;
         $tasks->save();
 
         // トップページへリダイレクトさせる
