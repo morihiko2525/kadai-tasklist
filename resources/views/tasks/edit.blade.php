@@ -1,7 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-
+    @if($tasks->user_id != Auth::user()->id)
+        return redirect('/');
+    @endif
+     
     @if (count($errors) > 0)
         <ul class="alert alert-danger" role="alert">
             @foreach ($errors->all() as $error)

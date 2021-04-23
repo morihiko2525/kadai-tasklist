@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Task;
 
@@ -76,9 +77,14 @@ class TaskController extends Controller
      */
     public function show($id)
     {
-        //
         // idの値でメッセージを検索して取得
         $tasks = Task::findOrFail($id);
+        
+        if($tasks->user_id != Auth::user()->id){
+            return redirect('/');
+        }        
+
+        //
 
         // メッセージ詳細ビューでそれを表示
         return view('tasks.show', [
@@ -96,6 +102,10 @@ class TaskController extends Controller
     {
         //
         $tasks = Task::findOrFail($id);
+        
+        if($tasks->user_id != Auth::user()->id){
+            return redirect('/');
+        } 
         
         return view('tasks.edit', ['tasks' => $tasks,]);
     }
