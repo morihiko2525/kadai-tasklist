@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-
+    
     <h1>id = {{ $tasks->id }} のタスク詳細</h1>
 
     <table class="table table-bordered">
