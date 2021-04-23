@@ -13,8 +13,6 @@
         <h1>タスク一覧</h1>
         {!! link_to_route('tasks.create', '新規タスクの追加', [], ['class' => 'btn btn-primary']) !!} 
         
-        {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
-        
          @if (count($tasks) > 0)
             <table class="table table-striped">
                 <thead>
