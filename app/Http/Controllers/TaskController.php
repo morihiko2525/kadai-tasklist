@@ -51,11 +51,20 @@ class TaskController extends Controller
             'status' => 'required|max:10',
         ]);
         
+        /**
         $tasks = new Task;
         $tasks->content = $request->content;
         $tasks->status = $request->status;
+        //$tasks->user_id = $request
         $tasks->save();
-        
+        **/
+    
+        $request->user()->tasks()->create([
+        'content' => $request->content,
+        'status' => $request->status,
+        ]);
+
+
         return redirect('/');
     }
 
